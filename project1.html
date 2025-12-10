@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arcade Machine – Benjamin Garza</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Slick Carousel -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+  <style>
+    .slider { margin: 2rem 0; }
+
+    .slick-slide img,
+    .slick-slide video {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+    }
+
+    /* Arrows */
+    .slick-prev  { left: calc(50% - 295px); }
+    .slick-next  { right: calc(50% - 295px); }
+    .slick-prev, .slick-next { width: 40px; height: 40px; z-index: 10; }
+    .slick-prev:before, .slick-next:before { font-size: 36px; color: #333; opacity: 0.8; }
+    .slick-dots { bottom: -50px; }
+
+    /* FULLSCREEN LIGHTBOX for images AND videos */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #000;
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    #lightbox img,
+    #lightbox video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 94vw;
+      max-height: 94vh;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    #lightbox .close {
+      position: fixed;
+      top: 25px;
+      right: 35px;
+      color: #fff;
+      font-size: 50px;
+      font-weight: 100;
+      cursor: pointer;
+      opacity: 0.8;
+    }
+    #lightbox .close:hover { opacity: 1; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1><a href="index.html" style="color:white; text-decoration:none;">← Back to Portfolio</a></h1>
+    </div>
+  </header>
+
+  <section class="container" style="padding-top:2rem;">
+    <h2>Arcade Machine</h2>
+    <p><strong>Tools:</strong> SolidWorks, 3D Scanning, 3D printing, Metalworking, Woodworking</p>
+    
+    <div class="slider">
+      <div><img src="images/IMG_2570.jpeg" alt="Arcade Machine - Front view"></div>
+      <div><img src="images/IMG_2576.jpeg" alt="Arcade Machine - Side angle"></div>
+      <div><img src="images/IMG_2728.jpeg" alt="Arcade Machine - CRT TV mount"></div>
+      <div><img src="images/IMG_2729.jpeg" alt="Arcade Machine - Final build"></div>
+
+      <!-- FIXED VIDEO SLIDE -->
+      <div>
+        <video controls autoplay loop muted playsinline>
+          <source src="images/FullSizeRender-compressed.mov" type="video/mp4">
+          
+        </video>
+      </div>
+    </div>
+
+    <br><br>
+
+    <h3>Project Overview</h3>
+    <p>While working at the Digital Modeling & Visualization Lab at Iowa State University, I was tasked with the development and fabrication of the mechanical structures for an arcade machine. The project needed to meet a hard deadline, this required creating a planner to manage the different phases of the project. This was a living document which stated the problem definition, conceptualization, initial designs, prototyping/testing, revisions, and assembly.</p>
+    
+    <br><br>
+
+    <h3>Key Achievements/Takeaways</h3>
+    <ul>
+      <li>Reverse-engineered supports for a 73-pound CRT TV using 3D scanning to design and 3D print the components for a custom arcade machine</li>
+      <li>Created a faceplate by 3D scanning the TV to generate a cross-sectional drawing, exporting it to SolidWorks as a DXF file, and laser cut wood for a seamless fit</li>
+      <li>Utilized wood and metalworking machinery to construct a wooden frame for the arcade machine</li>
+      <li>Integrated electrical components by 3D printing custom housings for a Raspberry Pi and adapters for HDMI-to-VGA cables, optimizing functionality and cable management</li>
+    </ul>
+
+    <br><br>
+
+    <p><a href="index.html" class="btn">Back to Portfolio</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Benji. Built with HTML & CSS.</p>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox">
+    <div class="close">×</div>
+    <img src="" alt="fullscreen">
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+  <script>
+    $(function(){
+      $('.slider').slick({
+        dots: true,
+        arrows: true,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 4000,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        fade: true,
+        cssEase: 'linear',
+        pauseOnHover: true
+      });
+
+      // Image or video → fullscreen
+      $('.slider').on('click', 'img, video', function(){
+        const src = this.tagName === 'VIDEO' ? this.querySelector('source').src : this.src;
+        const isVideo = this.tagName === 'VIDEO';
+
+        const $lightbox = $('#lightbox');
+        const $content = $lightbox.find('img');
+
+        if (isVideo) {
+          $content.hide();
+          if (!$lightbox.find('video').length) {
+            $lightbox.append('<video controls autoplay loop muted></video>');
+          }
+          $lightbox.find('video').attr('src', src).show();
+        } else {
+          $lightbox.find('video').remove();
+          $content.attr('src', src).show();
+        }
+
+        $lightbox.fadeIn(200);
+      });
+
+      // Close lightbox
+      $('#lightbox, #lightbox .close').on('click', function(e){
+        if (e.target === this || $(e.target).hasClass('close')) {
+          $('#lightbox').fadeOut(200);
+        }
+      });
+
+      $(document).on('keyup', e => e.key === "Escape" && $('#lightbox').fadeOut(200));
+    });
+  </script>
+</body>
+</html>

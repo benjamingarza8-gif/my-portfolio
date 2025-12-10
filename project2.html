@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Capstone – Benjamin Garza</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Slick Carousel CSS -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+  <!-- Slick -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+  <style>
+    .slider { margin: 2rem 0; }
+
+    .slick-slide img {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+    }
+
+    .slick-prev  { left: calc(50% - 295px); }
+    .slick-next  { right: calc(50% - 295px); }
+    .slick-prev, .slick-next { width: 40px; height: 40px; z-index: 10; }
+    .slick-prev:before, .slick-next:before { font-size: 36px; color: #333; opacity: 0.8; }
+    .slick-dots { bottom: -50px; }
+
+    /* LIGHTBOX */
+    #lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #000;
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    #lightbox img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 94vw;
+      max-height: 94vh;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    #lightbox .close {
+      position: fixed;
+      top: 25px;
+      right: 35px;
+      color: #fff;
+      font-size: 50px;
+      font-weight: 100;
+      cursor: pointer;
+      opacity: 0.8;
+    }
+    #lightbox .close:hover { opacity: 1; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1><a href="index.html" style="color:white; text-decoration:none;">← Back to Portfolio</a></h1>
+    </div>
+  </header>
+
+  <section class="container" style="padding-top:2rem;">
+    <h2>Capstone: Naval Surface Warfare Center - Crane Division</h2>
+    <p><strong>Tools:</strong> ANSYS Icepak, Solidworks, Microsoft Office</p>
+
+    <div class="slider">
+      <div><img src="images/Exp Setup.jpg" alt="Experimental Setup"></div>
+      <div><img src="images/CFD Simulation.jpg" alt="CFD Simulation"></div>
+      <div><img src="images/Transient Graph.jpg" alt="Transient Graph"></div>
+      <div><img src="images/Forced Convection Simulation.jpg" alt="Forced Convection Simulation"></div>
+    </div>
+
+    <br><br>
+
+    <h3>Project Overview</h3>
+    <p>The objectives were to develop a CFD analysis of a thermal system between a mosfet and heatsink while remaining within 10% error of experimental analysis. After data analysis, the task was to improve the heatsink to reduce the temperature of the mosfet. The final objective was to analyze the effects of convection on temperature within the system.</p>
+    <br><br>
+    <h3>Key Achievements/Takeaways</h3>
+    <ul>
+      <li>Modeled a transient CFD analysis of the heat transfer across the mosfet while remaining within 10% error of experimental data</li>
+      <li>Determined which heatsink would be the best at dissipating heat through calculations, simulation, and experimentation</li>
+      <li>Analyzed effects of convection on heat transfer through natural and forced convection, ultimately concluding that forced convection provided a 12% drop in the system’s ambient temperature</li>
+    </ul>
+
+    <br><br>
+
+    <p><a href="index.html" class="btn">Back to Portfolio</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Benji. Built with HTML & CSS.</p>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox">
+    <div class="close">×</div>
+    <img src="" alt="fullscreen">
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+  <script>
+    $(function(){
+      $('.slider').slick({
+        dots: true,
+        arrows: true,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 4000,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        fade: true,
+        cssEase: 'linear',
+        pauseOnHover: true
+      });
+
+      // Open lightbox
+      $('.slider').on('click', 'img', function(){
+        var src = this.src;
+        var img = $('#lightbox img');
+        img.attr('src', '');           
+        $('#lightbox').fadeIn(200);
+        img.attr('src', src);         
+      });
+
+      // Close lightbox
+      $('#lightbox, #lightbox .close').on('click', function(e){
+        if (e.target === this || $(e.target).hasClass('close')) {
+          $('#lightbox').fadeOut(200);
+        }
+      });
+
+      $(document).on('keyup', function(e){
+        if (e.key === "Escape") $('#lightbox').fadeOut(200);
+      });
+    });
+  </script>
+</body>
+</html>
