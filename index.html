@@ -5,38 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Benji – Mechanical Engineer</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { 
-      font-family: 'Roboto', sans-serif; 
-      line-height: 1.6; 
-      color: #333; 
-      background: #f9f9f9; 
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f9f9f9;
     }
     a { color: #0066cc; text-decoration: none; }
     a:hover { text-decoration: underline; }
     .container { max-width: 1000px; margin: auto; padding: 0 1rem; }
-
     /* Header */
-    header { 
+    header {
       position: relative;
-      background: #0066cc; 
-      color: white; 
+      background: #0066cc;
+      color: white;
       padding: 2.5rem 0;
       text-align: center;
     }
-    header h1 { 
-      font-size: 2.3rem; 
-      margin: 0 0 0.4rem 0; 
+    header h1 {
+      font-size: 2.3rem;
+      margin: 0 0 0.4rem 0;
       font-weight: 700;
     }
-    header p { 
-      font-size: 1.15rem; 
-      margin: 0; 
+    header p {
+      font-size: 1.15rem;
+      margin: 0;
       opacity: 0.9;
     }
-
     /* Hamburger Button */
     .menu-btn {
       position: fixed;
@@ -51,57 +48,53 @@
       transition: opacity 0.2s;
     }
     .menu-btn:hover { opacity: 0.7; }
-
     /* Sections */
     section { padding: 4rem 0; }
     h2 { font-size: 2rem; margin-bottom: 1.5rem; text-align: center; }
-
     /* Project Grid */
-    .grid { 
-      display: grid; 
-      gap: 2rem; 
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); 
+    .grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
     }
-    .card { 
-      background: white; 
-      border-radius: 10px; 
-      overflow: hidden; 
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+    .card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       transition: transform 0.3s;
     }
     .card:hover { transform: translateY(-8px); }
-    .placeholder-img { 
-      width: 100%; 
-      height: 200px; 
-      background: #ddd; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      color: #666; 
+    .placeholder-img {
+      width: 100%;
+      height: 200px;
+      background: #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
       font-size: 1.1rem;
     }
     .card h3 { padding: 1rem 1.2rem 0.5rem; font-size: 1.3rem; }
     .card p { padding: 0 1.2rem 1rem; font-size: 0.98rem; }
-    .btn { 
-      display: inline-block; 
-      background: #0066cc; 
-      color: white; 
-      padding: 0.7rem 1.2rem; 
-      margin: 0 1.2rem 1.2rem; 
-      border-radius: 6px; 
+    .btn {
+      display: inline-block;
+      background: #0066cc;
+      color: white;
+      padding: 0.7rem 1.2rem;
+      margin: 0 1.2rem 1.2rem;
+      border-radius: 6px;
       font-weight: 500;
     }
     .btn:hover { background: #004c99; }
-
     /* Footer */
-    footer { 
-      background: #333; 
-      color: #ddd; 
-      text-align: center; 
-      padding: 2rem 0; 
-      font-size: 0.95rem; 
+    footer {
+      background: #333;
+      color: #ddd;
+      text-align: center;
+      padding: 2rem 0;
+      font-size: 0.95rem;
     }
-
     /* Side Menu */
     .side-menu {
       height: 100%;
@@ -137,9 +130,7 @@
       font-weight: bold;
       color: white;
     }
-
     .side-menu.open { width: 280px; }
-
     .overlay {
       display: none;
       position: fixed;
@@ -148,40 +139,34 @@
       z-index: 999;
     }
     .overlay.show { display: block; }
-
     /* Mobile adjustments */
     @media (max-width: 768px) {
       header h1 { font-size: 2rem; }
       header p { font-size: 1.05rem; }
       .menu-btn { top: 1.4rem; left: 1rem; font-size: 1.9rem; }
     }
-
     .card img {
-  width: 100%;           /* makes it fill the card horizontally */
-  height: 250px;         /* change number to adj */
-  object-fit: cover;     /* crops instead of stretching */
+  width: 100%; /* makes it fill the card horizontally */
+  height: 250px; /* change number to adj */
+  object-fit: cover; /* crops instead of stretching */
   display: block;
 }
   </style>
 </head>
-
 <body>
-
   <!-- Hamburger Button -->
   <button class="menu-btn" onclick="toggleMenu()">≡</button>
-
   <header>
     <div class="container">
       <h1>Benji's Virtual Workshop</h1>
       <p>Mechanical Engineer | Designer | Problem Solver | Critical Thinker</p>
     </div>
-
     <!-- Slide-out Side Menu -->
     <div id="side-menu" class="side-menu">
       <a href="javascript:void(0)" class="close-btn" onclick="toggleMenu()">×</a>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
-      <a href="#Additional Content">Additional Content</a>      
+      <a href="#Additional Content">Additional Content</a>
       <a href="#contact">Contact</a>
       <a href="index.html">Home</a>
     </div>
@@ -191,9 +176,11 @@
     <h2>About Me</h2>
     <p>Welcome to my virtual workshop! I am a passionate mechanical engineer who graduated from Iowa State University. I want to share my projects and experiences with others who need inspiration or motivation to begin a project they have been hesitant to pursue.
        I am a driven individual committed to expanding my engineering skills and remaining curious about the world around me.</p>
-    <p>Feel free to explore my page and reach out to me for more information regarding any of my projects. Thank you!</p>  
+    <p>Feel free to explore my page and reach out to me for more information regarding any of my projects. Thank you!</p>
       </section>
+
       <br><br>
+
   <section id="projects" class="container">
     <h2>Projects</h2>
     <div class="grid">
@@ -203,14 +190,14 @@
         <img src="images2/IMG_2728.jpeg" alt="Custom retro arcade cabinet" class="project-img">
         <h3>Arcade Machine</h3>
         <p>
-        Designed and fabricated the mechanical structure to support a 73-pound CRT TV with complex geometry. 
+        Designed and fabricated the mechanical structure to support a 73-pound CRT TV with complex geometry.
         </p>
         <a href="project1.html" class="btn">View Details →</a>
       </div>
 
       <!--Project 2-->
       <div class="card">
-        <img src="images/CFD Simulation.jpg" alt="Custom retro arcade cabinet" class="project-img">
+        <img src="images/CFD Simulation.jpg" alt="Iowa State Capstone" class="project-img">
         <h3>Capstone: Naval Surface Warfare Center - Crane Division</h3>
         <p>Created CFD simulation of thermal system, modeled system within 10% of experimentation, identified efficient and cost-effective heatsink.</p>
         <a href="project2.html" class="btn">View Details →</a>
@@ -218,43 +205,63 @@
 
       <!--Project 3-->
       <div class="card">
-        <img src="images2/IMG_5208.jpg" alt="Custom retro arcade cabinet" class="project-img">
-        <h3>3D-Printed LED Light</h3>
+        <img src="images2/IMG_5208.jpg" alt="LED Light" class="project-img">
+        <h3>3D Printed LED Light</h3>
         <p>Designed and fabricated a 3D printed light fixture for wall mounting by developing a repeatable process for design and manufacturing.</p>
         <a href="project3.html" class="btn">View Details →</a>
       </div>
 
-      <!--3D-Renders-->
-    <div style="grid-column: 1 / -1; text-align: center; font-size: 2rem; font-weight: 700; margin: 2.5rem 0 1.5rem 0; color: #222;">
-        Additional Content
-      </div>
-    <Section id="Additional Content" class="container">
-      <div class="card">
-        <img src="images/Express-collage.png" alt="3D-Renderings" class="project-img">
-        <h3>3D-Renderings</h3>
-        <p>Interactive .stl files of project designs/components.</p>
-        <a href="3D-Renderings.html" class="btn">View Details</a>
-      </div>
     </div>
-    </section>
   </section>
+
+  <br><br>
+  
+  <section id="Additional Content" class="container">
+    <h2>Additional Content</h2>
+    <div class="grid">
+
+      <!--3D Renderings-->
+      <div class="card">
+        <img src="images/Express-collage.png" alt="3D Renderings" class="project-img">
+        <h3>3D Renderings</h3>
+        <p>Interactive .stl files of project designs/components.</p>
+        <a href="3D-Renderings.html" class="btn">View Details →</a>
+      </div>
+
+      <!--3D Scanning/Reverse Engineering-->
+      <div class="card">
+        <img src="images3/3D Scan IMG.jpg" alt="3D Scannign/Reverse Engineering" class="project-img">
+        <h3>3D Scanning/Reverse Engineering</h3>
+        <p>3D scanning projects for purposes of reverse engineering, inspection, and manufacturing.</p>
+        <a href="3D Scanning and Reverse Engineering.html" class="btn">View Details →</a>
+      </div>
+
+      <!--This is the template to add more cards-->
+      <div class="card">
+        <img src="images3/Construction.png" alt="Tung Tung Tung Sahur" class="project-img">
+        <h3>Under Construction</h3>
+        <p>Coming soon...</p>
+      <!--<a href="project3.html" class="btn">View Details →</a>-->
+      </div>
+
+    </div>
+  </section>
+
+  <br><br>
 
   <section id="contact" class="container">
     <h2>Contact</h2>
     <p> <a href="https://www.linkedin.com/in/benjamin-garza-a8a784277/?trk=opento_sprofile_topcard" target="_blank">LinkedIn</a>
   </section>
-
   <footer>
     <div class="container">
       <p>© 2025 Benji. Built with HTML & CSS.</p>
     </div>
   </footer>
-
   <script>
     function toggleMenu() {
       const menu = document.getElementById('side-menu');
       const overlay = document.querySelector('.overlay');
-
       if (menu.classList.contains('open')) {
         menu.classList.remove('open');
         if (overlay) overlay.remove();
@@ -268,9 +275,4 @@
     }
   </script>
 </body>
-
 </html>
-
-
-
-
